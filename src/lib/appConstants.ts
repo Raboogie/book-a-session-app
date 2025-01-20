@@ -8,10 +8,6 @@ export const navBarContent = {
         {
             text: 'Browse Sessions',
             url: '/sessions'
-        },
-        {
-            text: 'Upcoming Sessions',
-            url: '/sessions/:id'
         }
     ]
 }

@@ -1,0 +1,38 @@
+import Modal, {ModalHandle} from "../UI/Modal.tsx";
+import {useEffect, useRef} from "react";
+import {Button} from "../UI/Button.tsx";
+import {useBookedSessionContext} from "../../lib/SessionContext.tsx";
+type UpcomingSessionProps = {
+    onClose: () => void;
+};
+
+const UpcomingSession = ({onClose}: UpcomingSessionProps) => {
+
+    const modal = useRef<ModalHandle | null>(null);
+    const bookedSessionCtx = useBookedSessionContext();
+
+    useEffect(() => {
+        if (modal.current) {
+            modal.current.open();
+        }
+    }, []);
+
+    return (
+        <>
+            <Modal ref={modal} onClose={onClose}>
+                <h2>Upcoming Session</h2>
+                {bookedSessionCtx.session.length === 0 && (
+                    <>
+                        <main id="session-page">
+                            <p>No session found!</p>
+                        </main>
+                    </>
+                )}
+                <p className='actions'>
+                <Button elementType="button" onClick={onClose}>Close</Button>
+                </p>
+            </Modal>
+        </>
+    );
+};
+export default UpcomingSession;
