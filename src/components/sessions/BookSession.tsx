@@ -45,17 +45,18 @@ export const BookSession = ({onClose, loadedSession}:BookSessionProps) => {
         <>
             <Modal ref={modal} onClose={onClose}>
                 <h2>Book Session</h2>
-                <form className="control" onSubmit={handleSubmit}>
-                    <div>
+                <form onSubmit={handleSubmit}>
+                    <div className='control'>
                         <label htmlFor='name'>YOUR NAME</label>
                         <input type='text' id='name' name='name'/>
-
+                    </div>
+                    <div className='control'>
                         <label htmlFor='email'>YOUR EMAIL</label>
                         <input type='email' id='email' name='email'/>
                     </div>
 
                     <p className='actions'>
-                        <Button elementType="button" onClick={onClose}>Cancel</Button>
+                        <Button className='button button--text-only' elementType="button" onClick={onClose}>Cancel</Button>
                         <button className="button" type='submit'>Book Session</button>
                     </p>
                 </form>
