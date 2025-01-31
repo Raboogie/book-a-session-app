@@ -1,7 +1,7 @@
 import Modal, {ModalHandle} from "../UI/Modal.tsx";
 import {useEffect, useRef} from "react";
-import {Button} from "../UI/Button.tsx";
 import {useBookedSessionContext} from "../../lib/SessionContext.tsx";
+import UpcomingSessionList from "./UpcomingSessionList.tsx";
 type UpcomingSessionProps = {
     onClose: () => void;
 };
@@ -28,8 +28,11 @@ const UpcomingSession = ({onClose}: UpcomingSessionProps) => {
                         </main>
                     </>
                 )}
+                {bookedSessionCtx && (
+                    <UpcomingSessionList upcomingSessions={bookedSessionCtx.session}/>
+                )}
                 <p className='actions'>
-                <Button elementType="button" onClick={onClose}>Close</Button>
+                <button className='button' onClick={onClose}>Close</button>
                 </p>
             </Modal>
         </>

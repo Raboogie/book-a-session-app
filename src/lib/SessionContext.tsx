@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 export type SessionType = {
 	// // user inputs
@@ -31,7 +31,7 @@ type sessionContextProviderProps = {
 const BookedSessionContext = createContext<SessionContextValue | null>(null);
 
 export const useBookedSessionContext = () => {
-	const bookedSessionCtx = React.useContext(BookedSessionContext);
+	const bookedSessionCtx = useContext(BookedSessionContext);
 	if (!bookedSessionCtx) {
 		throw new Error('useBookedSessionContext Should not be null!');
 	}
@@ -41,7 +41,7 @@ export const useBookedSessionContext = () => {
 const BookedSessionsContextProvider = ({
 	children,
 }: sessionContextProviderProps) => {
-	const [session, setSession] = React.useState<SessionType[]>([]);
+	const [session, setSession] = useState<SessionType[]>([]);
 
 	const addSession = (session: SessionType) => {
 		setSession((prevSessions) => [...prevSessions, session]);
@@ -54,7 +54,7 @@ const BookedSessionsContextProvider = ({
 	const contextValue: SessionContextValue = {
 		session,
 		addSession,
-		clearSession
+		clearSession,
 	};
 
 	return (
