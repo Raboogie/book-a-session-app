@@ -10,7 +10,6 @@ type SessionsListProps = {
 };
 
 export const SessionList = ({ sessions }: SessionsListProps) => {
-	// debug and see what's in the sessions prop
 	return (
 		<>
 			<ul id="sessions-list">
