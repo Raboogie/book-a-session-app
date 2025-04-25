@@ -1,4 +1,3 @@
-//import { createRoot } from 'react-dom/client';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import BookedSessionItem from './BookedSessionItem';

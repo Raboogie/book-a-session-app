@@ -1,9 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { SESSIONS } from '../dummy-sessions.ts';
 import {Button} from "../components/UI/Button.tsx";
-import React, {useEffect, useState} from "react";
+import React, { useState } from "react";
 import {BookSession} from "../components/sessions/BookSession.tsx";
-import {useBookedSessionContext} from "../lib/SessionContext.tsx";
 
 export default function SessionPage() {
   const params = useParams<{ id: string }>();
@@ -11,11 +10,6 @@ export default function SessionPage() {
   const sessionId = params.id;
   const loadedSession = SESSIONS.find((session) => session.id === sessionId);
   const [showDialog, setShowDialog] = useState(false);
-  const bookedSessionCtx = useBookedSessionContext();
-
-  useEffect(() => {
-    console.log("Loaded SessionPage bookedSessionCtx Data:",bookedSessionCtx.session);
-  },[bookedSessionCtx.session]);
 
   const showModal = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
