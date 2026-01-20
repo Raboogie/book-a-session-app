@@ -1,0 +1,43 @@
+#home-page {
+    width: 80%;
+    max-width: 60rem;
+    margin: 3rem auto;
+    border-radius: 8px;
+    color: white;
+}
+
+#home-page h2 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #e1d8f0;
+}
+
+#home-page section {
+    display: flex;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+#home-page section:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+#home-page img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+#home-page h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #c7b0ee;
+}
+
+#home-page p {
+    max-width: 60ch;
+    margin: 2rem 0;
+    font-size: 1.25rem;
+    color: #d5cbe7;
+}

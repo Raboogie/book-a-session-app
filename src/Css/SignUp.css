@@ -1,0 +1,207 @@
+/* SignUp.css */
+:root {
+    --primary: #4f46e5;        /* Indigo 600 */
+    --primary-hover: #4338ca;  /* Indigo 700 */
+    --bg-color: #f9fafb;       /* Gray 50 */
+    --card-bg: #ffffff;
+    --text-dark: #111827;      /* Gray 900 */
+    --text-medium: #6b7280;    /* Gray 500 */
+    --border: #e5e7eb;         /* Gray 200 */
+    --border-focus: #4f46e5;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+}
+
+/* Reset & Layout */
+.signup-wrapper {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 250px 20px;
+}
+
+/* Card Container */
+.signup-card {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 400px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 40px;
+}
+
+/* Header */
+.signup-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.signup-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.signup-header p {
+    margin-top: 8px;
+    color: var(--text-medium);
+    font-size: 0.9rem;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Icons inside input */
+.input-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--text-medium);
+    pointer-events: none; /* Allows clicking through to the input */
+    width: 20px;
+    height: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px 12px 44px; /* Left padding accounts for icon */
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Password Toggle Button */
+.password-toggle-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+
+.password-toggle-btn:hover {
+    color: var(--text-dark);
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.submit-btn:active {
+    transform: translateY(1px);
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: var(--text-medium);
+    font-size: 0.85rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border);
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+/* Social Buttons */
+.social-login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.social-btn {
+    padding: 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: background-color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.social-btn:hover {
+    background-color: #f3f4f6;
+}
+
+/* Footer Link */
+.form-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+
+.link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .signup-wrapper {
+        padding: 100px 20px;
+    }
+}

@@ -1,6 +1,7 @@
 import HomePage from './pages/Home.tsx';
 import SessionsPage from './pages/Sessions.tsx';
 import SessionPage from './pages/Session.tsx';
+import Login from "./pages/Login.tsx";
 import Root from "./pages/Root.tsx";
 import {
     Route,
@@ -9,12 +10,16 @@ import {
     RouterProvider
 } from "react-router-dom";
 import BookedSessionsContextProvider from "./lib/SessionContext.tsx";
+import SignUp from "./pages/SignUp.tsx";
+import AuthProvider from "./lib/UserContext.tsx";
 
 
 const Router = createBrowserRouter(
     createRoutesFromChildren(
         <Route path='/' element={<Root/>}>
             <Route index element={<HomePage />} />
+            <Route path="login" element={<Login/>} />
+            <Route path="signup" element={<SignUp/>} />
             <Route path="sessions" element={<SessionsPage />} />
             <Route path="sessions/:id" element={<SessionPage />} />
         </Route>
@@ -24,9 +29,11 @@ const Router = createBrowserRouter(
 function App() {
   return (
       <>
+          <AuthProvider>
           <BookedSessionsContextProvider>
                 <RouterProvider router={Router} />
           </BookedSessionsContextProvider>
+          </AuthProvider>
       </>
   );
 }
