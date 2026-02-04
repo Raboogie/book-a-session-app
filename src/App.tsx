@@ -12,6 +12,9 @@ import {
 import BookedSessionsContextProvider from "./lib/SessionContext.tsx";
 import SignUp from "./pages/SignUp.tsx";
 import AuthProvider from "./lib/UserContext.tsx";
+import ProfilePage from "./pages/ProfilePage.tsx";
+import {CreateSession} from "./pages/CreateSession.tsx";
+import {ProtectedRoute} from "./components/ProtectedRoute.tsx";
 
 
 const Router = createBrowserRouter(
@@ -22,6 +25,11 @@ const Router = createBrowserRouter(
             <Route path="signup" element={<SignUp/>} />
             <Route path="sessions" element={<SessionsPage />} />
             <Route path="sessions/:id" element={<SessionPage />} />
+            <Route element={<ProtectedRoute />}>
+                <Route path="profile" element={<ProfilePage />} />
+                <Route path="createSession" element={<CreateSession />} />
+            </Route>
+
         </Route>
     )
 )
