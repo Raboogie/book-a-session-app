@@ -1,9 +1,12 @@
 import { createContext, useContext, useState } from 'react';
 
+export type User = {
+	name: string;
+	email: string;
+};
 export type SessionType = {
-	// // user inputs
-	// name: string;
-	// email: string;
+	// user inputs
+	user?: User;
 
 	// session data
 	id: string;

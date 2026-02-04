@@ -1,7 +1,7 @@
 import Modal, { ModalHandle } from '../UI/Modal.tsx';
 import { useEffect, useRef } from 'react';
-import { useBookedSessionContext } from '../../lib/SessionContext.tsx';
 import UpcomingSessionList from './UpcomingSessionList.tsx';
+import {useSessionStore} from "../../lib/useSessionStore.ts";
 
 type UpcomingSessionProps = {
 	onClose: () => void;
@@ -9,7 +9,8 @@ type UpcomingSessionProps = {
 
 const UpcomingSession = ({ onClose }: UpcomingSessionProps) => {
 	const modal = useRef<ModalHandle | null>(null);
-	const bookedSessionCtx = useBookedSessionContext();
+	const sessions = useSessionStore((state) => state.session);
+
 
 	useEffect(() => {
 		if (modal.current) {
@@ -21,16 +22,16 @@ const UpcomingSession = ({ onClose }: UpcomingSessionProps) => {
 		<>
 			<Modal ref={modal} onClose={onClose}>
 				<h2>Upcoming Session</h2>
-				{bookedSessionCtx.session.length === 0 && (
+				{sessions.length === 0 && (
 					<>
 						<main id="session-page">
 							<p>No session found!</p>
 						</main>
 					</>
 				)}
-				{bookedSessionCtx && (
+				{sessions.length > 0 && (
 					<UpcomingSessionList
-						upcomingSessions={bookedSessionCtx.session}
+						upcomingSessions={sessions}
 					/>
 				)}
 				<p className="actions">

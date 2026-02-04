@@ -1,5 +1,5 @@
 //import React from "react";
-import { useBookedSessionContext } from '../../lib/SessionContext.tsx';
+import {useSessionStore} from "../../lib/useSessionStore.ts";
 
 type BookedSessionItemProps = {
 	id: string;
@@ -14,11 +14,11 @@ const BookedSessionItem = ({
 	summary,
 	date,
 }: BookedSessionItemProps) => {
-	const bookedSessionCtx = useBookedSessionContext();
+	const clearSession = useSessionStore((state) => state.clearSession);
 
 	const cancelSessionHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-		bookedSessionCtx.clearSession(id);
+		clearSession(id);
 	};
 
 	return (
