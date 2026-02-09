@@ -24,16 +24,17 @@ function ProfilePage() {
         <>
             <div className="profilePage" >
                 <div className="profileMainHeader">
-                    <h1>Welcome to your Profile</h1>
-                    <p>{user?.name}</p>
+                    <h1>Welcome, {user?.name}</h1>
                     <p>{user?.email}</p>
+                    {user?.roles.includes("ROLE_MENTOR") && <p className="role-badge">Mentor</p>}
                 </div>
                 <div className="profileContent">
-                    <h1>Bio Content</h1>
+                    <h1>About Me</h1>
+                    <p>This is your profile dashboard. Here you can manage your sessions and account details.</p>
                 </div>
                 <div className="profileActions">
                     {/* Display create a session button to the bottom left, If the user is a Mentor */}
-                    {user?.roles.includes("ROLE_MENTOR") && <button onClick={createSessionHandler}>Create Session</button>}
+                    {user?.roles.includes("ROLE_MENTOR") && <button onClick={createSessionHandler}>Create New Session</button>}
                 </div>
             </div>
         </>

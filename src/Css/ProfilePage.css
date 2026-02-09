@@ -1,17 +1,64 @@
 .profilePage {
-    width: 80%;
+    width: 60%;
     max-width: 80rem;
     margin: 3rem auto;
+    display: grid;
+    gap: 2rem;
+}
+
+.profileMainHeader {
+    background-color: #352e41;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    color: white;
+}
+
+.profileMainHeader h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+    color: #e1d8f0;
+}
+
+.profileMainHeader p {
+    margin: 0.25rem 0;
+    color: #b6adc5;
+    font-size: 1.1rem;
+}
+
+.role-badge {
+    display: inline-block;
+    background-color: #5a5563;
+    color: #c7b0ee;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem !important;
+    margin-top: 0.5rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .profileContent {
-    border-radius: 6px;
-    padding: 1rem;
-    background-color: #5a5563;
+    background-color: #352e41;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    color: #e1d8f0;
+}
+
+.profileContent h1 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #c7b0ee;
+    border-bottom: 1px solid #5a5563;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .profileActions {
-    padding-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .profileActions button {
@@ -19,8 +66,15 @@
     color: #0a0218;
     border: none;
     border-radius: 4px;
-    padding: 0.5rem 1.5rem;
+    padding: 0.75rem 2rem;
     cursor: pointer;
-    text-decoration: none;
     font: inherit;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.profileActions button:hover,
+.profileActions button:active {
+    background-color: #a16cf7;
 }
