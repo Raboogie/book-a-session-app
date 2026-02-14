@@ -1,4 +1,3 @@
-//import React from "react";
 import {useSessionStore} from "../../lib/useSessionStore.ts";
 
 type BookedSessionItemProps = {

@@ -42,10 +42,7 @@ export default function SignUp() {
 
     const [showPassword, setShowPassword] = useState(false);
 
-    const onSubmit: SubmitHandler<InputFormData> = (data) => {
-        // Logic to register user goes here
-        console.log('User Registered:', data);
-
+    const onSubmit: SubmitHandler<InputFormData> = () => {
         navigate('/login');
     };
 

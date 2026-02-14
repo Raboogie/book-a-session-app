@@ -1,7 +1,6 @@
 import Modal, {ModalHandle} from "../UI/Modal.tsx";
 import {FormEvent, useEffect, useRef} from "react";
 import {Button} from "../UI/Button.tsx";
-//import {useBookedSessionContext} from "../../lib/SessionContext.tsx";
 import {SessionType} from "../../lib/SessionContext.tsx";
 import {SessionShape, useSessionStore} from "../../lib/useSessionStore.ts";
 
@@ -13,7 +12,6 @@ type BookSessionProps = {
 
 export const BookSession = ({onClose, loadedSession}:BookSessionProps) => {
     const modal = useRef<ModalHandle | null>(null);
-    //const bookedSessionCtx = useBookedSessionContext();
     const setSession= useSessionStore((state) => (state.setSession))
 
     useEffect(() => {
@@ -24,22 +22,7 @@ export const BookSession = ({onClose, loadedSession}:BookSessionProps) => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>)=> {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        const data = Object.fromEntries(formData);
 
-        // loadedSession.user.name = data.name as string;
-        // loadedSession.user.email = data.email as string;
-
-        // todo - There a bug that causes the array to be empty when a session is first added
-        // Update how user data is assigned to loadedSession
-        // const updatedSession: SessionType = {
-        //     ...loadedSession,
-        //     user: {
-        //         name: data.name as string,
-        //         email: data.email as string,
-        //     }
-        // };
-        // Map the loadedSession (SessionType) to the store's expected format (SessionShape)
         const bookedSession: SessionShape = {
             id: loadedSession.id,
             title: loadedSession.title,
@@ -49,14 +32,8 @@ export const BookSession = ({onClose, loadedSession}:BookSessionProps) => {
             image: loadedSession.image,
 
         };
-        // save the data using React context api
-        //bookedSessionCtx.addSession(updatedSession);
-        setSession([bookedSession]);
-        console.log(data);
 
-        //console.log("Loaded Session Data:",bookedSessionCtx.session);
-        console.log("BookedSession: ", bookedSession);
-        console.log("SessionStore Sessions: ", useSessionStore.getState().session);
+        setSession([bookedSession]);
         onClose();
     }
 
