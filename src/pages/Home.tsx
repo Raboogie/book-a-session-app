@@ -6,10 +6,16 @@ import '../Css/Home.css';
 export default function HomePage() {
   return (
     <main id="home-page">
-      <h2>Our Mission: Your Success</h2>
+      <div className="hero-header">
+        <h2>Our Mission: Your Success</h2>
+        <p>Connect, learn, and grow with the best React community.</p>
+      </div>
+      
       <section>
-        <img src={studentsImg} alt="A group of students" />
-        <div>
+        <div className="image-container">
+          <img src={studentsImg} alt="A group of students" />
+        </div>
+        <div className="content-container">
           <h3>What we do</h3>
           <p>
             ReactMentoring is a platform for React developers to find mentors
@@ -21,8 +27,10 @@ export default function HomePage() {
       </section>
 
       <section>
-        <img src={listImg} alt="A list of sessions" />
-        <div>
+        <div className="image-container">
+          <img src={listImg} alt="A list of sessions" />
+        </div>
+        <div className="content-container">
           <h3>What we offer</h3>
           <p>
             We offer a variety of mentoring sessions, from one-on-one mentoring
@@ -31,9 +39,12 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
       <section>
-        <img src={certificateImg} alt="A certificate"/>
-        <div>
+        <div className="image-container">
+          <img src={certificateImg} alt="A certificate"/>
+        </div>
+        <div className="content-container">
           <h3>What you get</h3>
           <p>
             No matter if you are a beginner or an experienced React developer,

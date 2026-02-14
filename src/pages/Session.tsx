@@ -42,18 +42,19 @@ export default function SessionPage() {
             <time dateTime={new Date(loadedSession.date).toISOString()}>
               {new Date(loadedSession.date).toLocaleDateString('en-US', {
                 day: 'numeric',
-                month: 'short',
+                month: 'long',
                 year: 'numeric',
               })}
             </time>
             <p>
-              {/* Todo: Add button that opens "Book Session" dialog / modal */}
               <Button className='button' elementType={"button"} onClick={showModal}>Book
                 Session</Button>
             </p>
           </div>
         </header>
-        <p id="content">{loadedSession.description}</p>
+        <div id="content">
+            {loadedSession.description}
+        </div>
       </article>
     </main>
   );
