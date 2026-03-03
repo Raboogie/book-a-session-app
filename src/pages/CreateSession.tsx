@@ -3,6 +3,7 @@ import {z} from "zod";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Link} from "react-router-dom";
+import {SESSIONS} from "../dummy-sessions.ts";
 
 const sessionInputSchema = z.object({
     sessionTitle: z.string().min(6, {
@@ -15,9 +16,9 @@ const sessionInputSchema = z.object({
     sessionDescription: z.string().min(6, {
         message: 'Description must be at least 6 characters long'
     }),
-    sessionDate: z.date(),
+    sessionDate: z.string().datetime(),
     sessionTime: z.string(),
-    sessionDuration: z.int(),
+    sessionDuration: z.number(),
     sessionTopic: z.string(),
 });
 
@@ -28,14 +29,13 @@ export const CreateSession = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
     } = useForm<InputFormData>({
         resolver: zodResolver(sessionInputSchema),
         defaultValues: {
             sessionTitle: '',
             sessionSummary: '',
             sessionDescription: '',
-            sessionDate: new Date(),
+            sessionDate: new Date().toISOString().split('T')[0],
             sessionTime: '12:00',
             sessionTopic: '',
         },
@@ -94,6 +94,22 @@ export const CreateSession = () => {
                             {...register('sessionDescription')}
                             required
                         />
+                    </div>
+                    <div>
+                        <label htmlFor="sessionTopic">Topic</label>
+                        <select
+                            id="sessionTopic"
+                            className="form-input"
+                            {...register('sessionTopic')}
+                            required
+                        >
+                            <option value="" disabled>Select a topic</option>
+                            {SESSIONS.map((session) => (
+                                <option key={session.id} value={session.title}>
+                                    {session.title}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                     <div className="form-row">
                         <div>

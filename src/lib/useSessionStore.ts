@@ -6,19 +6,17 @@ export interface SessionShape {
     title: string;
     description: string;
     summary: string;
-    // sessionPrice: number;
-    // sessionDate: Date;
-    // sessionStartTime: String;
-    // sessionDuration: number;
+    sessionStartTime: string;
+    sessionDuration: number;
     image: string;
     date: string;
 
     // need to add later;
+    // sessionPrice: number;
     // sessionTopic
     // mentor
 }
 
-// Define the shape of the store
 interface SessionState {
 
     session: SessionShape[];
@@ -27,6 +25,8 @@ interface SessionState {
     updateSessionTitle: (id: string, newTitle: string) => void ;
     updateSessionDescription: (id: string, newDescription: string) => void;
     updateSessionSummary: (id: string, newSummary: string) => void;
+    updateSessionStartTime: (id: string, newStartTime: string) => void;
+    updateSessionDuration: (id: string, newDuration: number) => void;
 
 }
 
@@ -51,7 +51,15 @@ export const useSessionStore = create<SessionState>()(
 
     updateSessionSummary: (id: string, newSummary: string) => set((state) => ({
         session: state.session.map((s) => (s.id === id ? {...s, summary: newSummary} : s))
-    }))
+    })),
+
+    updateSessionStartTime: (id: string, newStartTime: string) => set((state) => ({
+        session: state.session.map((s) => (s.id === id ? {...s, sessionStartTime: newStartTime} : s))
+    })),
+
+    updateSessionDuration: (id: string, newDuration: number) => set((state) => ({
+        session: state.session.map((s) => (s.id === id ? {...s, sessionDuration: newDuration} : s))
+    })),
         }),
         {
             name: 'booked-sessions-storage', // unique name for the key in localStorage
