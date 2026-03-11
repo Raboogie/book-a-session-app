@@ -62,7 +62,7 @@ export const useSessionStore = create<SessionState>()(
     })),
         }),
         {
-            name: 'booked-sessions-storage', // unique name for the key in localStorage
+            name: 'booked-sessions-storage',
             storage: createJSONStorage(() => localStorage), // (optional) explicitly use localStorage
         }
     )

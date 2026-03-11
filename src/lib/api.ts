@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// 1. MEMORY STORAGE
 let accessToken: string | null = null;
 
 export const setAccessToken = (token: string | null) => {

@@ -27,7 +27,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(true);
 
-    // ON MOUNT: Try to refresh token
     useEffect(() => {
         const persistLogin = async () => {
             try {
