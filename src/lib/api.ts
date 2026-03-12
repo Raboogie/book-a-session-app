@@ -31,7 +31,6 @@ api.interceptors.request.use(
 // 3. RESPONSE INTERCEPTOR
 api.interceptors.response.use(
     (response) => {
-        // If the request succeeds, just return the response
         return response;
     },
     async (error) => {
@@ -65,9 +64,6 @@ api.interceptors.response.use(
                 // If the refresh token is ALSO expired or invalid, we must log the user out.
                 setAccessToken(null);
                 console.error("Session expired. Please login again.");
-
-                // Optional: Clear user data and redirect to log in
-                // localStorage.removeItem('user');
                 window.location.href = '/login';
 
                 return Promise.reject(refreshError);
